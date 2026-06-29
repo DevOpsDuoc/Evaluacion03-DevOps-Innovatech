@@ -6,10 +6,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://qic534o8o0.execute-api.us-east-1.amazonaws.com',
+      // Proxy para la API de Ventas (Puerto 8080)
+      '/api/v1/ventas': {
+        target: 'http://backend-ventas-service:8080',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
+      },
+      // Proxy para la API de Despachos (Puerto 8081)
+      '/api/v1/despachos': {
+        target: 'http://backend-despachos-service:8081',
+        changeOrigin: true,
       }
     }
   }
