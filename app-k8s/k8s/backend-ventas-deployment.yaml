@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-ventas
+  name: backend-ventas-springboot
   namespace: innovatech
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: backend-ventas
+      app: backend-ventas-springboot
   template:
     metadata:
       labels:
-        app: backend-ventas
+        app: backend-ventas-springboot
     spec:
       containers:
-        - name: backend-ventas
-          image: 637083690819.dkr.ecr.us-east-1.amazonaws.com/backend-ventas:eks-v1
+        - name: backend-ventas-springboot
+          image: 118812498736.dkr.ecr.us-east-1.amazonaws.com/backend-ventas:eks-v1
           ports:
             - containerPort: 8080
           env:

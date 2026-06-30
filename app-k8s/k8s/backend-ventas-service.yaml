@@ -5,7 +5,7 @@ metadata:
   namespace: innovatech
 spec:
   selector:
-    app: backend-ventas
+    app: backend-ventas-springboot
   ports:
     - port: 8080
       targetPort: 8080
