@@ -65,12 +65,12 @@ jobs:
       - name: Crear repositorio ECR Despachos si no existe
         run: |
           aws ecr create-repository --repository-name backend-despachos || true
-          
+
       - name: Build & push BACKEND DESPACHOS
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         run: |
-          cd app-k8s/back-bespachos-springboot/api-rest-despacho
+          cd app-k8s/back-despachos-springboot/api-rest-despacho
           docker build -t $ECR_REGISTRY/${ECR_REPO_BACKEND_DESPACHOS}:${IMAGE_TAG} .
           docker push $ECR_REGISTRY/${ECR_REPO_BACKEND_DESPACHOS}:${IMAGE_TAG}
 
