@@ -132,10 +132,10 @@ jobs:
         run: |
           kubectl apply -f app-k8s/k8s/backend-despachos-service.yaml -n $EKS_NAMESPACE
           kubectl apply -f app-k8s/k8s/backend-despachos-deployment.yaml -n $EKS_NAMESPACE
-          kubectl set image deployment/backend-despachos \
-            backend-despachos=$ECR_REGISTRY/${ECR_REPO_BACKEND_DESPACHOS}:${IMAGE_TAG} \
-            -n $EKS_NAMESPACE
-          kubectl rollout status deployment/backend-despachos -n $EKS_NAMESPACE
+        #kubectl set image deployment/backend-despachos \
+        #    backend-despachos=$ECR_REGISTRY/${ECR_REPO_BACKEND_DESPACHOS}:${IMAGE_TAG} \
+        #    -n $EKS_NAMESPACE
+        #  kubectl rollout status deployment/backend-despachos -n $EKS_NAMESPACE
 
       # ---------- Actualizar FRONTEND en EKS ----------
       - name: Actualizar FRONTEND en EKS
@@ -145,10 +145,10 @@ jobs:
         run: |
           kubectl apply -f app-k8s/k8s/front-despacho-service.yaml -n $EKS_NAMESPACE
           kubectl apply -f app-k8s/k8s/front-despacho-deployment.yaml -n $EKS_NAMESPACE
-          kubectl set image deployment/front-despacho \
-            frontend=$ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} \
-            -n $EKS_NAMESPACE
-          kubectl rollout status deployment/front-despacho -n $EKS_NAMESPACE
+        #  kubectl set image deployment/front-despacho \
+        #    frontend=$ECR_REGISTRY/${ECR_REPO_FRONTEND}:${IMAGE_TAG} \
+        #    -n $EKS_NAMESPACE
+        #  kubectl rollout status deployment/front-despacho -n $EKS_NAMESPACE
 
       # ---------- Horizontal Pod Autoscaler (HPA) ----------
       - name: Aplicar HPA unificado
