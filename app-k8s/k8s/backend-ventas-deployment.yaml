@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend-ventas
-          image: 098350412874.dkr.ecr.us-east-1.amazonaws.com/backend-ventas:d3b005c
+          image: 098350412874.dkr.ecr.us-east-1.amazonaws.com/backend-ventas:22b29cb
           ports:
             - containerPort: 8080
           env:
