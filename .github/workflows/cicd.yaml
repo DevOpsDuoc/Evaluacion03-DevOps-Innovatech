@@ -119,10 +119,10 @@ jobs:
         run: |
           kubectl apply -f app-k8s/k8s/backend-ventas-service.yaml -n $EKS_NAMESPACE
           kubectl apply -f app-k8s/k8s/backend-ventas-deployment.yaml -n $EKS_NAMESPACE
-          kubectl set image deployment/backend-ventas \
-            backend-ventas=$ECR_REGISTRY/${ECR_REPO_BACKEND_VENTAS}:${IMAGE_TAG} \
-            -n $EKS_NAMESPACE
-          kubectl rollout status deployment/backend-ventas -n $EKS_NAMESPACE
+        # kubectl set image deployment/backend-ventas \
+        #    backend-ventas=$ECR_REGISTRY/${ECR_REPO_BACKEND_VENTAS}:${IMAGE_TAG} \
+        #    -n $EKS_NAMESPACE
+        #  kubectl rollout status deployment/backend-ventas -n $EKS_NAMESPACE
 
       # ---------- Actualizar BACKEND DESPACHOS en EKS ----------
       - name: Actualizar BACKEND DESPACHOS en EKS
