@@ -28,10 +28,11 @@ spec:
             - name: DB_USERNAME
               value: "root"
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_ROOT_PASSWORD
+              value: "Innovatech2026"
+              #valueFrom:
+              #  secretKeyRef:
+              #    name: mysql-secret
+              #    key: MYSQL_ROOT_PASSWORD
           resources:
             requests:
               cpu: "100m"
